@@ -2,7 +2,9 @@ package com.thealgorithms.audiofilters;
 
 /**
  * Exponential Moving Average (EMA) Filter for smoothing audio signals.
- *
+ * 指数平均移动滤波器，用于平滑音频信号，减少快速波动（用于信号处理）
+ * EMAt = α×Xt + (1−α)×EMAt−1
+ * 如果 alpha 小，EMA 变化更慢，平滑效果更强
  * <p>This filter applies an exponential moving average to a sequence of audio
  * signal values, making it useful for smoothing out rapid fluctuations.
  * The smoothing factor (alpha) controls the degree of smoothing.
@@ -11,8 +13,8 @@ package com.thealgorithms.audiofilters;
  * <a href="https://en.wikipedia.org/wiki/Moving_average">Wikipedia link</a>.
  */
 public class EMAFilter {
-    private final double alpha;
-    private double emaValue;
+    private final double alpha; // 平滑因子，控制平滑程度
+    private double emaValue; // 存储当前 EMA 计算值
     /**
      * Constructs an EMA filter with a given smoothing factor.
      *
